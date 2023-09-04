@@ -5,8 +5,35 @@ Summary: Take 4 numbers from the user and use the various arithmetic operators t
 */
 
 #include <iostream>
+#include "Input_Validation.h"
 
 using namespace std;
+
+// Function to handle data validation
+
+int getInteger(int x) {
+  int input = 0;
+  while (true) {
+    cout << "Please enter Number " << x << ": ";
+    
+    try {
+      input = getValidatedInput<int>();
+      if (x == 2 || x ==4) {
+        if (input == 0) {
+          cout << "Can not divide by zero!" << endl;
+          continue;
+        }
+      }
+    } catch(exception e) {
+      cout << "Please only enter integers!" << endl;
+      continue;
+    }
+
+    break;
+  }
+
+  return input;
+}
 
 int main() {
   // Variable Declarations
@@ -14,28 +41,10 @@ int main() {
   int number3, number4, modulus;
 
   // Input
-  cout << "Please enter Number 1: ";
-  cin >> number1;
-  while (true) {
-    cout << "Please enter Number 2: ";
-    cin >> number2;
-    if (number2 != 0) {
-      break;
-    } else {
-      cout << "Can not divide by 0" << endl;
-    }
-  }
-  cout << "Please enter Number 3: ";
-  cin >> number3;
-  while (true) {
-    cout << "Please enter Number 4: ";
-    cin >> number4;
-    if (number4 != 0) {
-      break;
-    } else {
-      cout << "Can not divide by 0" << endl;
-    }
-  }
+  number1 = getInteger(1);
+  number2 = getInteger(2);
+  number3 = getInteger(3);
+  number4 = getInteger(4);
 
   // Processing
   addition = number1 + number2;
