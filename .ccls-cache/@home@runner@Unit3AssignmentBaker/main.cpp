@@ -22,7 +22,7 @@ int main() {
     if (number2 != 0) {
       break;
     } else {
-      cout << "Number can not be 0" << endl;
+      cout << "Can not divide by 0" << endl;
     }
   }
   cout << "Please enter Number 3: ";
@@ -33,7 +33,7 @@ int main() {
     if (number4 != 0) {
       break;
     } else {
-      cout << "Number can not be 0" << endl;
+      cout << "Can not divide by 0" << endl;
     }
   }
 
